@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <debugInfo>
 <pcToLineNum>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="19" pc="268435458" symbol="initialize"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="20" pc="268435476" symbol="initialize"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="21" pc="268435489" symbol="initialize"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="23" pc="268435502" symbol="initialize"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="24" pc="268435564" symbol="initialize"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="26" pc="268435611" symbol="initialize"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="27" pc="268435647" symbol="initialize"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="38" pc="268435694" symbol="compute"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="39" pc="268435720" symbol="compute"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="40" pc="268435746" symbol="compute"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="41" pc="268435759" symbol="compute"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="45" pc="268435785" symbol="compute"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="46" pc="268435831" symbol="compute"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="50" pc="268435915" symbol="compute"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="51" pc="268435925" symbol="compute"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="52" pc="268435935" symbol="compute"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="54" pc="268435945" symbol="compute"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="58" pc="268435977" symbol="getHeartRateReserve"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="59" pc="268435997" symbol="getHeartRateReserve"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="60" pc="268436016" symbol="getHeartRateReserve"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="62" pc="268436055" symbol="getHeartRateReserve"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="66" pc="268436064" symbol="getExp"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="70" pc="268436090" symbol="calcNullable"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="71" pc="268436097" symbol="calcNullable"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpView.mc" lineNum="73" pc="268436103" symbol="calcNullable"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpApp.mc" lineNum="6" pc="268436109" symbol="initialize"/>
-<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\workspace\\Trimp\\source\\TrimpApp.mc" lineNum="19" pc="268436136" symbol="getInitialView"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="19" pc="268435458" symbol="initialize"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="20" pc="268435476" symbol="initialize"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="21" pc="268435489" symbol="initialize"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="23" pc="268435502" symbol="initialize"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="24" pc="268435564" symbol="initialize"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="26" pc="268435611" symbol="initialize"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="27" pc="268435647" symbol="initialize"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="38" pc="268435694" symbol="compute"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="39" pc="268435720" symbol="compute"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="40" pc="268435746" symbol="compute"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="41" pc="268435759" symbol="compute"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="45" pc="268435785" symbol="compute"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="46" pc="268435831" symbol="compute"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="50" pc="268435915" symbol="compute"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="51" pc="268435925" symbol="compute"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="52" pc="268435935" symbol="compute"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="54" pc="268435945" symbol="compute"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="58" pc="268435977" symbol="getHeartRateReserve"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="59" pc="268435997" symbol="getHeartRateReserve"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="60" pc="268436016" symbol="getHeartRateReserve"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="62" pc="268436055" symbol="getHeartRateReserve"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="66" pc="268436064" symbol="getExp"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="70" pc="268436090" symbol="calcNullable"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="71" pc="268436097" symbol="calcNullable"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpView.mc" lineNum="73" pc="268436103" symbol="calcNullable"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpApp.mc" lineNum="6" pc="268436109" symbol="initialize"/>
+<entry filename="C:\\Users\\VNO3521\\Developpement\\garmin\\git\\garmin-trimp\\Trimp\\source\\TrimpApp.mc" lineNum="19" pc="268436136" symbol="getInitialView"/>
 </pcToLineNum>
 <symbolTable>
 <entry id="21" module="true" symbol="Menus"/>
