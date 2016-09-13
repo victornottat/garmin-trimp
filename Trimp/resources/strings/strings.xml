@@ -1,3 +1,11 @@
-<strings>
-    <string id="AppName">Trimp</string>
-</strings>
+<resources>
+	<strings>
+	    <string id="AppName">Trimp</string>
+	    <string id="trimp_label">TRIMP</string>
+	</strings>
+	<fitContributions>
+	    <fitField id="0" displayInChart="true" sortOrder ="0" precision="2"
+	    chartTitle="@Strings.trimp_label" dataLabel="@Strings.trimp_label"
+	    unitLabel="@Strings.trimp_label" fillColor="#2094f1" />
+	</fitContributions>
+</resources>

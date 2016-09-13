@@ -15,6 +15,7 @@ class TrimpView extends Ui.SimpleDataField {
 	var latestDistance = 0;
 	
 	var trimp = 0.0;
+	var trimpField;
 
     //! Set the label of the data field here.
     function initialize() {
@@ -28,9 +29,10 @@ class TrimpView extends Ui.SimpleDataField {
         var zones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
         userMaxHR = calcNullable(zones[zones.size()-1],0);
         
-        if(UserProfile.getCurrentSport() == UserProfile.SPORT_CYCLING || UserProfile.getCurrentSport() == UserProfile.SPORT_RUNNING){
-        	staticSport = false;
-        }
+        staticSport = UserProfile.getCurrentSport() == UserProfile.HR_ZONE_SPORT_GENERIC;
+        
+        
+        trimpField = createField("TRIMP", 0, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD});
         
         //Me
         /*genderMultiplier = 1.92;
@@ -51,13 +53,14 @@ class TrimpView extends Ui.SimpleDataField {
     	if(staticSport || timeVariation > 0 && (distance-latestDistance)/(timeVariation/1000.0) > movingThreshold){
     		trimp += timeVariation * getHeartRateReserve(heartRate) * 0.64 * Math.pow(Math.E, getExp(heartRate));
     	}
+    	trimpField.setData(trimp);
     
     	//update latest data
     	latestTime = time;
     	latestHR = heartRate;
     	latestDistance = distance;
     
-        return (trimp/60000.0).format("%3.0f");
+    	return (trimp/60000.0).toLong();
     }
     
     function getHeartRateReserve(heartRate){
