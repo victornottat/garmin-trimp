@@ -14,26 +14,36 @@ class TrimpView extends Ui.SimpleDataField {
 	var latestHR = 0;
 	var latestDistance = 0;
 	
+	var movingTime = 0.0;
+	
+	//custom fit fields
 	var trimp = 0.0;
-	var trimpField;
+	var trimpChartField;
+	var trimpSummaryField;
+	var trimpPerHourSummaryField;
+	
+	//lifecycle
+	var running = false;
 
     //! Set the label of the data field here.
     function initialize() {
         SimpleDataField.initialize();
         label = "TRIMP";
-        trimp = 0.0;
-        
-        genderMultiplier = UserProfile.getProfile().gender == UserProfile.GENDER_MALE?1.92:1.67;
-        userRestingHR = calcNullable(UserProfile.getProfile().restingHeartRate,0);
         
         var zones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
         userMaxHR = calcNullable(zones[zones.size()-1],0);
         
+        genderMultiplier = UserProfile.getProfile().gender == UserProfile.GENDER_MALE?1.92:1.67;
+        userRestingHR = calcNullable(UserProfile.getProfile().restingHeartRate,0);
+        
         staticSport = UserProfile.getCurrentSport() == UserProfile.HR_ZONE_SPORT_GENERIC;
         
+        trimpChartField = createField("Trimp", 0, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD});
+        trimpSummaryField = createField("Trimp", 1, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION});
+        trimpPerHourSummaryField = createField("Trimp/Hr", 2, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION});
         
-        trimpField = createField("TRIMP", 0, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD});
-        
+        resetData();
+                
         //Me
         /*genderMultiplier = 1.92;
         userRestingHR = 45;
@@ -50,17 +60,60 @@ class TrimpView extends Ui.SimpleDataField {
     
     	//convert ms to minutes at display to reduce roundings influence
     	//use average speed since last measure in m/s
-    	if(staticSport || timeVariation > 0 && (distance-latestDistance)/(timeVariation/1000.0) > movingThreshold){
+    	//ony update if moving (according to sport) and activity not paused / stopped 
+    	if(running && (staticSport || timeVariation > 0 && (distance-latestDistance)/(timeVariation/1000.0) > movingThreshold)){
     		trimp += timeVariation * getHeartRateReserve(heartRate) * 0.64 * Math.pow(Math.E, getExp(heartRate));
+    		movingTime += timeVariation;
+    		
+    		//update .fit data
+	    	trimpChartField.setData(trimp/60000.0);
+	    	trimpSummaryField.setData(trimp/60000.0);
+	    	
+	    	if (movingTime > 0) {
+	            var movingTimeHr = movingTime / 60.0;
+	            trimpPerHourSummaryField.setData(trimp/movingTimeHr);
+	        }
     	}
-    	trimpField.setData(trimp);
-    
+        
     	//update latest data
     	latestTime = time;
     	latestHR = heartRate;
     	latestDistance = distance;
     
     	return (trimp/60000.0).toLong();
+    }
+    
+    //manage activity lifecycle
+    function onTimerStart(){
+    	running = true;
+    }
+    
+    function onTimerPause(){
+    	running = false;
+    }
+    
+    function onTimerResume(){
+    	running = true;
+    }
+    
+    function onTimerStop(){
+    	running = false;
+    }
+    
+    function onTimerReset(){
+	    resetData();
+    }
+    
+    function resetData(){
+    	latestTime = 0;
+		latestHR = 0;
+		latestDistance = 0;
+		movingTime = 0.0;
+		trimp = 0.0;
+		
+		trimpChartField.setData(0);
+	    trimpSummaryField.setData(0);
+	    trimpPerHourSummaryField.setData(0);
     }
     
     function getHeartRateReserve(heartRate){
