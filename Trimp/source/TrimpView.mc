@@ -57,6 +57,17 @@ class TrimpView extends Ui.SimpleDataField {
     	var heartRate = calcNullable(info.currentHeartRate, 0);
     	var timeVariation = (time - latestTime); //Minutes
     	var distance = calcNullable(info.elapsedDistance, 0);
+    	
+    	//prevent wrong values when no HR is available
+		//Check for Trimp value in case of a short signal loss during the ride
+		if(true && currentHeartRate == 0 && trimp == 0){
+			return "No HR";
+		}
+		
+		//prevent negative TRIMP with HR lower than user's rest HR
+		if(currentHeartRate < userRestHR){
+			currentHeartRate = userRestHR;
+		}
     
     	//convert ms to minutes at display to reduce roundings influence
     	//use average speed since last measure in m/s
