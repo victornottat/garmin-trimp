@@ -1,6 +1,6 @@
 <resources>
 	<strings>
-		<string id="AppName">Trimp</string>
+		<string id="AppName">Training impact</string>
 		<string id="trimp_label_long">Training Impulse</string>
 		<string id="trimp_label">TRIMP</string>
 		<string id="trimp_per_hour_label">TRIMP/Hr</string>
