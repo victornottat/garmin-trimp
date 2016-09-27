@@ -30,12 +30,28 @@ class TrimpView extends Ui.SimpleDataField {
         SimpleDataField.initialize();
         label = "TRIMP";
         
-        var zones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
-        userMaxHR = calcNullable(zones[zones.size()-1],0);
+        System.println("custom HR enabled : " + Application.getApp().getProperty("customHR"));
+        System.println("min HR : " + Application.getApp().getProperty("restHR"));
+        System.println("max HR : " + Application.getApp().getProperty("maxHR"));
         
-        genderMultiplier = UserProfile.getProfile().gender == UserProfile.GENDER_MALE?1.92:1.67;
-        userRestingHR = calcNullable(UserProfile.getProfile().restingHeartRate,0);
+        var customHREnabled = Application.getApp().getProperty("customHR");
+        var customRestHR = Application.getApp().getProperty("restHR");
+        var customMaxHR = Application.getApp().getProperty("maxHR");
         
+        //use custom HR values if possible
+        if(customHREnabled && customRestHR && customMaxHR && customRestHR > 0 && customMaxHR > customRestHR){
+        	userRestingHR = customRestHR;
+        	userMaxHR = customMaxHR;
+        	
+        } else {
+        	var zones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
+        	userMaxHR = calcNullable(zones[zones.size()-1],0);
+        
+        	userRestingHR = calcNullable(UserProfile.getProfile().restingHeartRate,0);
+        }
+        
+        genderMultiplier = UserProfile.getProfile().gender == UserProfile.GENDER_MALE?1.92:1.67;     
+                
         staticSport = UserProfile.getCurrentSport() == UserProfile.HR_ZONE_SPORT_GENERIC;
         
         trimpChartField = createField("Trimp", 0, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD});
@@ -60,13 +76,13 @@ class TrimpView extends Ui.SimpleDataField {
     	
     	//prevent wrong values when no HR is available
 		//Check for Trimp value in case of a short signal loss during the ride
-		if(true && currentHeartRate == 0 && trimp == 0){
+		if(running && heartRate == 0 && trimp == 0){
 			return "No HR";
 		}
 		
 		//prevent negative TRIMP with HR lower than user's rest HR
-		if(currentHeartRate < userRestHR){
-			currentHeartRate = userRestHR;
+		if(heartRate < userRestingHR){
+			heartRate = userRestingHR;
 		}
     
     	//convert ms to minutes at display to reduce roundings influence

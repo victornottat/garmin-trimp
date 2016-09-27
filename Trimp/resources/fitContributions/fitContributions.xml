@@ -1,0 +1,26 @@
+<fitContributions>
+	<fitField id="0" 
+		displayInChart="true" 
+		sortOrder="0"
+		precision="0" 
+		chartTitle="@Strings.trimp_label_long" 
+		dataLabel="@Strings.trimp_label"
+		unitLabel="@Strings.void" 
+		fillColor="#2094F1" />
+
+	<fitField id="1" 
+		displayInChart="false"
+		displayInActivitySummary="true" 
+		sortOrder="1" 
+		precision="0"
+		unitLabel="@Strings.void" 
+		dataLabel="@Strings.trimp_label" />
+	<fitField id="2" 
+		displayInChart="false" 
+		displayInActivitySummary="true"
+		sortOrder="2"
+		precision="0" 
+		unitLabel="@Strings.per_hour_label" 
+		dataLabel="@Strings.trimp_per_hour_label" />
+
+</fitContributions>
