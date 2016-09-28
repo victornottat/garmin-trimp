@@ -5,7 +5,7 @@ class TrimpView extends Ui.SimpleDataField {
 	//conf
 	const movingThreshold = 1.0;
 
-	var userRestingHR = 0;
+	var userRestHR = 0;
 	var genderMultiplier = 1.92;
 	var userMaxHR=0;
 	var staticSport = true;
@@ -30,30 +30,28 @@ class TrimpView extends Ui.SimpleDataField {
         SimpleDataField.initialize();
         label = "TRIMP";
         
-        System.println("custom HR enabled : " + Application.getApp().getProperty("customHR"));
-        System.println("min HR : " + Application.getApp().getProperty("restHR"));
-        System.println("max HR : " + Application.getApp().getProperty("maxHR"));
-        
+        //use custom HR values if possible
         var customHREnabled = Application.getApp().getProperty("customHR");
         var customRestHR = Application.getApp().getProperty("restHR");
         var customMaxHR = Application.getApp().getProperty("maxHR");
         
-        //use custom HR values if possible
         if(customHREnabled && customRestHR && customMaxHR && customRestHR > 0 && customMaxHR > customRestHR){
-        	userRestingHR = customRestHR;
+        	userRestHR = customRestHR;
         	userMaxHR = customMaxHR;
         	
-        } else {
+        } else { //use hr data from profile
         	var zones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
         	userMaxHR = calcNullable(zones[zones.size()-1],0);
         
-        	userRestingHR = calcNullable(UserProfile.getProfile().restingHeartRate,0);
+        	userRestHR = calcNullable(UserProfile.getProfile().restingHeartRate,0);
         }
+        
         
         genderMultiplier = UserProfile.getProfile().gender == UserProfile.GENDER_MALE?1.92:1.67;     
                 
         staticSport = UserProfile.getCurrentSport() == UserProfile.HR_ZONE_SPORT_GENERIC;
         
+        //Create fit contributions
         trimpChartField = createField("Trimp", 0, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD});
         trimpSummaryField = createField("Trimp", 1, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION});
         trimpPerHourSummaryField = createField("Trimp/Hr", 2, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION});
@@ -62,7 +60,7 @@ class TrimpView extends Ui.SimpleDataField {
                 
         //Me
         /*genderMultiplier = 1.92;
-        userRestingHR = 45;
+        userRestHR = 45;
         userMaxHR = 175;*/
     }
 
@@ -73,6 +71,12 @@ class TrimpView extends Ui.SimpleDataField {
     	var heartRate = calcNullable(info.currentHeartRate, 0);
     	var timeVariation = (time - latestTime); //Minutes
     	var distance = calcNullable(info.elapsedDistance, 0);
+    	   	
+    	//prevent wrong value when user min/max HR is not available
+    	if(userRestHR <=0 || userMaxHR <= 0 || userRestHR == userMaxHR){
+    		return "!min/max HR";
+    	}
+    	
     	
     	//prevent wrong values when no HR is available
 		//Check for Trimp value in case of a short signal loss during the ride
@@ -81,8 +85,8 @@ class TrimpView extends Ui.SimpleDataField {
 		}
 		
 		//prevent negative TRIMP with HR lower than user's rest HR
-		if(heartRate < userRestingHR){
-			heartRate = userRestingHR;
+		if(heartRate < userRestHR){
+			heartRate = userRestHR;
 		}
     
     	//convert ms to minutes at display to reduce roundings influence
@@ -144,9 +148,9 @@ class TrimpView extends Ui.SimpleDataField {
     }
     
     function getHeartRateReserve(heartRate){
-    	if(userMaxHR != userRestingHR){
+    	if(userMaxHR != userRestHR){
     		var latestHRAverage = (heartRate + latestHR) / 2.0;
-    		return 1.0*(latestHRAverage - userRestingHR)/(userMaxHR - userRestingHR);
+    		return 1.0*(latestHRAverage - userRestHR)/(userMaxHR - userRestHR);
     	}
     	return 0;
     }
