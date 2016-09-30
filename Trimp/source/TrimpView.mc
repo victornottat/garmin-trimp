@@ -92,7 +92,7 @@ class TrimpView extends Ui.SimpleDataField {
     	//convert ms to minutes at display to reduce roundings influence
     	//use average speed since last measure in m/s
     	//ony update if moving (according to sport) and activity not paused / stopped 
-    	if(running && (staticSport || timeVariation > 0 && (distance-latestDistance)/(timeVariation/1000.0) > movingThreshold)){
+    	if(running && (staticSport || (timeVariation > 0 && (distance-latestDistance)/(timeVariation/1000.0) > movingThreshold))){
     		trimp += timeVariation * getHeartRateReserve(heartRate) * 0.64 * Math.pow(Math.E, getExp(heartRate));
     		movingTime += timeVariation;
     		

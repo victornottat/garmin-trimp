@@ -15,6 +15,7 @@
 		precision="0"
 		unitLabel="@Strings.void" 
 		dataLabel="@Strings.trimp_label" />
+		
 	<fitField id="2" 
 		displayInChart="false" 
 		displayInActivitySummary="true"

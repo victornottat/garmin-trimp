@@ -4,7 +4,7 @@
 	<string id="trimp_label">TRIMP</string>
 	<string id="trimp_per_hour_label">TRIMP/Hr</string>
 	<string id="per_hour_label">/Hr</string>
-	<string id="void"></string>
+	<string id="void">.</string>
 	
 	<string id="customHR">Use custom heart rate</string>
 	<string id="restHR">Rest heart rate</string>
