@@ -29,13 +29,18 @@ class TrimpView extends Ui.SimpleDataField {
     function initialize() {
         SimpleDataField.initialize();
         label = "TRIMP";
-        
+                
         //use custom HR values if possible
-        var customHREnabled = Application.getApp().getProperty("customHR");
-        var customRestHR = Application.getApp().getProperty("restHR");
-        var customMaxHR = Application.getApp().getProperty("maxHR");
+        var customHREnabled = calcNullable(Application.getApp().getProperty("customHR"), false);
+        var customRestHR = calcNullable(Application.getApp().getProperty("restHR"),0);
+        var customMaxHR = calcNullable(Application.getApp().getProperty("maxHR"),0);
         
-        if(customHREnabled && customRestHR && customMaxHR && customRestHR > 0 && customMaxHR > customRestHR){
+        System.println(customHREnabled);
+        System.println(customRestHR);
+        System.println(customMaxHR);
+        
+        if(customHREnabled && customRestHR != null && customMaxHR != null && customRestHR > 0 && customMaxHR > customRestHR){
+        	System.println("using custom HR");
         	userRestHR = customRestHR;
         	userMaxHR = customMaxHR;
         	
@@ -44,6 +49,9 @@ class TrimpView extends Ui.SimpleDataField {
         	userMaxHR = calcNullable(zones[zones.size()-1],0);
         
         	userRestHR = calcNullable(UserProfile.getProfile().restingHeartRate,0);
+        	
+        	System.println("using profile HR");
+        	System.println(userRestHR + "/" + userMaxHR);
         }
         
         
